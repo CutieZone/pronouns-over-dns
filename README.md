@@ -16,7 +16,7 @@ Each pronoun in the list is called a "segment."  A segment is a string of charac
 - Trimmed (no leading or trailing whitespace)
 - Lowercased
 
-To ensure consistency and ease of parsing, segments should appear in this order:
+To ensure consistency and ease of parsing, segments should appear in this order (examples provided from a `she/her` base, as those are my pronouns so it was easiest to work with):
 
 1. **Subject:**  (Required) The pronoun used when referring to the person as the subject of a sentence (e.g., "**She** went to the store").
 2. **Object:** (Required)  The pronoun used when referring to the person as the object of a verb or preposition (e.g., "Give the book to **her**").
@@ -46,4 +46,8 @@ Parsers should prioritize the `primary.pronouns` record if it exists. If no `pri
 
 ### Consistency
 
-It is recommended to use the same number of segments for each record, however it is not mandatory.
+It is recommended to use the same number of segments for each record, however that is not mandatory.
+
+## Extra
+
+This originated, as far as I can tell, from [this blog post by fasterthanlime](https://fasterthanli.me/articles/state-of-the-fasterthanlime-2024#all-the-personal-news). If someone can find an earlier source, I'd be happy to amend it, but this is an attempt at formalizing the format.

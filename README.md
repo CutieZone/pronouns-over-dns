@@ -8,12 +8,12 @@ Create a TXT record with the name `pronouns`. This will apply to the subdomain `
 
 ## Record Contents
 
-The record's content should be a slash-separated list of pronouns.  Pronouns are words used to refer to someone in place of their name (e.g., "she/her" or "they/them"). This list allows individuals to specify their preferred pronouns.
+The record's content should be a slash-separated list of pronouns: words used to refer to someone in place of their name (e.g., "she/her" or "they/them").
 
-Each pronoun in the list is called a "segment."  A segment is a string of characters without any forward slashes (`/`). Each segment should be:
+Each pronoun in the list is called a "segment". A segment is a string of characters without any forward slashes (`/`). Each segment should be:
 
 - At least one character long
-- Trimmed (no leading or trailing whitespace)
+- Trimmed (no leading or trailing whitespace, spaces can exist within)
 - Lowercased
 
 To ensure consistency and ease of parsing, segments should appear in this order (examples provided from a `she/her` base, as those are my pronouns so it was easiest to work with):

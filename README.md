@@ -38,31 +38,29 @@ It is recommended to use the same number of segments for each record, however th
 
 ## Multiple Records
 
-If you use or are comfortable with multiple sets of pronouns, you can create additional TXT records with the name `pronouns`. To indicate your preferred or default set, create another TXT record named `primary.pronouns`. The content of this record should exactly match the content of one of your `pronouns` records.
-
-Parsers should prioritize the `primary.pronouns` record if it exists. If no `primary.pronouns` record is found, parsers may choose any of the `pronouns` records or present all options to the user.
+If you use or are comfortable with multiple sets of pronouns, you can create additional TXT records with the name `pronouns`. To indicate your preferred or default set, append `; primary` to the record's content.'
 
 **Example:**
 
 - `pronouns`: `she/her`
 - `pronouns`: `they/them`
-- `primary.pronouns`: `she/her`
+- `pronouns`: `he/him; primary`
 
 ## Explicit support for `any/all` pronouns
 
 To specify that you go by `any/all` pronouns, one should set their `pronouns.` to an asterisk (`*`).
 
-Additionally, if you wish to signify that you primarily go by one set of pronouns, however are comfortable with any pronouns, one should follow the multiple records section with one of the `pronouns.` records set to `*` with a `primary.pronouns.` of the preferred primary.
+Additionally, if you wish to signify that you primarily go by one set of pronouns, however are comfortable with any pronouns, one should follow the multiple records section with one of the `pronouns.` records set to `*` with a primary pronoun indicator of the preferred primary.
 
-Furthermore, if you have a `(primary.)pronouns.` with `*`, you are able to provide an optionally preferred fallback pronoun set option in the form of `TXT (primary.)pronouns *; fall/back/pronouns` (example: `*; they/them`).
+Furthermore, if you have a `pronouns.` with `*`, you are able to provide an optionally preferred fallback pronoun set option in the form of `TXT pronouns *; fall/back/pronouns` (example: `*; they/them`).
 
-If no fallback pronouns are provided in the event of a `primary.pronouns.` `*`, the client parsing is encouraged to pick a random set of `pronouns.` provided within the same domain space (i.e. if a user has multiple pronoun records, and their primary is `*` a random `pronouns.` set should be selected).
+If no fallback pronouns are provided in the event of a primary pronoun indicated `*`, the client parsing is encouraged to pick a random set of `pronouns.` provided within the same domain space (i.e. if a user has multiple pronoun records, and their primary is `*` a random `pronouns.` set should be selected).
 
 If no fallback pronouns are provided, and the only existing pronoun set on the domain space is `*`, the client is encouraged to pick suitable random pronouns.
 
-## Selection of `pronouns.` in the event of no `primary.pronouns.`
+## Selection of `pronouns.` in the event of no primary pronoun indicator
 
-In an event such that there are multiple `pronouns.` specified yet no `primary.pronouns.`, a client is encouraged to randomly select from the available `pronouns.` sets available.
+In an event such that there are multiple `pronouns.` specified yet no primary pronoun indicator, a client is encouraged to randomly select from the available `pronouns.` sets available.
 
 ## Extra
 

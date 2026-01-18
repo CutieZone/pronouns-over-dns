@@ -38,7 +38,7 @@ It is recommended to use the same number of segments for each record, however th
 
 ## Multiple Records
 
-If you use or are comfortable with multiple sets of pronouns, you can create additional TXT records with the name `pronouns`. To indicate your preferred or default set, append `; primary` to the record's content.'
+If you use or are comfortable with multiple sets of pronouns, you can create additional TXT records with the name `pronouns`. To indicate your preferred or default set, append `; primary` to the record's content. If multiple records are marked as primary, clients may pick any of them as the primary set.
 
 **Example:**
 

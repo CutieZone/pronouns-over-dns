@@ -32,6 +32,10 @@ At least the subject and object pronouns are required.
 - `she/her/her/hers` (subject, object, possessive determiner, possessive pronoun)
 - `he/him/his/his/himself` (subject, object, possessive determiner, possessive pronoun, reflexive)
 
+### Consistency
+
+It is recommended to use the same number of segments for each record, however that is not mandatory.
+
 ## Multiple Records
 
 If you use or are comfortable with multiple sets of pronouns, you can create additional TXT records with the name `pronouns`. To indicate your preferred or default set, create another TXT record named `primary.pronouns`. The content of this record should exactly match the content of one of your `pronouns` records.
@@ -44,9 +48,21 @@ Parsers should prioritize the `primary.pronouns` record if it exists. If no `pri
 - `pronouns`: `they/them`
 - `primary.pronouns`: `she/her`
 
-### Consistency
+## Explicit support for `any/all` pronouns
 
-It is recommended to use the same number of segments for each record, however that is not mandatory.
+To specify that you go by `any/all` pronouns, one should set their `pronouns.` to an asterisk (`*`).
+
+Additionally, if you wish to signify that you primarily go by one set of pronouns, however are comfortable with any pronouns, one should follow the multiple records section with one of the `pronouns.` records set to `*` with a `primary.pronouns.` of the preferred primary.
+
+Furthermore, if you have a `(primary.)pronouns.` with `*`, you are able to provide an optionally preferred fallback pronoun set option in the form of `TXT (primary.)pronouns *; fall/back/pronouns` (example: `*; they/them`).
+
+If no fallback pronouns are provided in the event of a `primary.pronouns.` `*`, the client parsing is encouraged to pick a random set of `pronouns.` provided within the same domain space (i.e. if a user has multiple pronoun records, and their primary is `*` a random `pronouns.` set should be selected).
+
+If no fallback pronouns are provided, and the only existing pronoun set on the domain space is `*`, the client is encouraged to pick suitable random pronouns.
+
+## Selection of `pronouns.` in the event of no `primary.pronouns.`
+
+In an event such that there are multiple `pronouns.` specified yet no `primary.pronouns.`, a client is encouraged to randomly select from the available `pronouns.` sets available.
 
 ## Extra
 

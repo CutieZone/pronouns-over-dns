@@ -79,7 +79,7 @@ The following tags are defined:
 
 ### `preferred`
 
-Indicates that this pronoun set is the user's preferred pronoun set. If multiple pronoun sets are tagged with `preferred`, a record is picked in accodrance with the [selection process](#selection-process) defined below.
+Indicates that this pronoun set is the user's preferred pronoun set. If multiple pronoun sets are tagged with `preferred`, a record is picked in accordance with the [selection process](#selection-process) defined below.
 
 ## Wildcard and None Records
 

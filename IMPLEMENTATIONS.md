@@ -15,3 +15,7 @@ Example on how to add yourself:
 ## Go
 
 - [podgo](https://github.com/vcokltfre/podgo)
+
+## Java
+
+- [PoDNS4J](https://github.com/itsfolf/PoDNS4J)

@@ -130,7 +130,3 @@ Implementations should, in the case of certain common pronoun sets defined below
 | Input  | Converted To         |
 | ------ | -------------------- |
 | it/its | it/it/its/its/itself |
-
-## Extra
-
-This originated, as far as I can tell, from [this blog post by fasterthanlime](https://fasterthanli.me/articles/state-of-the-fasterthanlime-2024#all-the-personal-news). If someone can find an earlier source, I'd be happy to amend it, but this is an attempt at formalizing the format.

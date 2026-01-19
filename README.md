@@ -33,7 +33,8 @@ tags = ";", tag, { ";", tag }
 
 tag = "preferred" | "plural";
 
-value = [a-z]+;
+value = value-char, { value-char } ;
+value-char = ? any character except "!", "*", ";", "/", "#" ? ;
 
 comment = "#", { any-non-newline-character };
 
@@ -41,7 +42,9 @@ wildcard = "*";
 none = "!";
 ```
 
-The canonical representation of a record's values and tags contains only lowercase letters, with no whitespace. Parsers, however, should normalise input to be lowercase, and should ignore leading or trailing whitespace. The canonical representation of the tags component should contain no duplicate or empty tags, but again parsers should expect these and normalise input to remove duplicates and empty tags.
+The canonical representation of a record's value may contain any character except for "!", "*", ";", "/", "#", and with only lowercase letters. Parsers, however, should normalise input to be lowercase, and should ignore leading or trailing whitespace. Values may have internal whitespace which should not be modified by the parser. 
+
+The canonical representation of the tags component should contain no duplicate or empty tags, but again parsers should expect these and normalise input to remove duplicates and empty tags.
 
 A pronoun set must include a subject (e.g., "she", "he", "they") and an object (e.g., "her", "him", "them") pronoun at minimum. The possessive determiner (e.g., "her", "his", "their"), the possessive pronoun (e.g., "hers", "his", "theirs"), and reflexive pronoun (e.g., "herself", "himself", "themself") are optional. These components must be provided in the order listed above if they are included.
 
@@ -54,6 +57,7 @@ Some examples of valid and invalid records:
 + he/him/his/his/himself;preferred
 + they/them/their/theirs/themself
 + they/them;preferred;plural
++ that one/that one/that one's
 + *
 + !
 + ze/zir/zir/zirself
@@ -70,6 +74,7 @@ Some examples of valid and invalid records:
 - she
 - they/them/their/theirs/themself/extra
 - she/her;unknown-tag
+- in!valid/in*valid
 ```
 
 Note that each example here is an isolated example provided grouped for brevity. In practice, a `!` record may not be provided with other records and must be the sole record if present, per [None Records](#none).

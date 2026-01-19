@@ -33,6 +33,10 @@ Example on how to add yourself:
 
 - [pronouns.nix](https://gist.github.com/itsfolf/ad1624951bf4f79b5c342b2e44b74f82)
 
+## Python
+
+- [podns](https://github.com/ijsbol/podns_py)
+
 ## Rust
 
 - [podns_rs](https://crates.io/crates/podns)

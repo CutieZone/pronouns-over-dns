@@ -4,6 +4,7 @@ This is a Pull Request-maintained list of libraries that implement the pronouns-
 
 <!--
 
+These entries should remain alphabetically ordered both for the headings and for individual entries.
 Example on how to add yourself:
 
 ## [Language]

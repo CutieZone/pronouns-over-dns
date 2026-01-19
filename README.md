@@ -5,7 +5,7 @@ This document proposes a standard format for specifying personal pronouns using 
 ## Terminology
 
 - `domain`: A domain name associated with a person, typically used for personal websites or email addresses.
-- `pronouns`: A set of personal pronouns that a user uses to refer to themselves
+- `pronouns`: A set of personal pronouns that a user uses to refer to themself
 - `record`: A DNS TXT record that contains information about the pronouns.
 - `pronoun set`: A set of associated pronouns, such as "she/her", "he/him", "they/them", etc.
 - `user`: The person whose pronouns are being specified.
@@ -45,7 +45,7 @@ none = "!";
 
 The canonical representation of a record's values and tags contains only lowercase letters, with no whitespace. Parsers, however, should normalise input to be lowercase, and should ignore leading or trailing whitespace. The canonical representation of the tags component should contain no duplicate or empty tags, but again parsers should expect these and normalise input to remove duplicates and empty tags.
 
-A pronoun set must include a subject (e.g., "she", "he", "they") and an object (e.g., "her", "him", "them") pronoun at minimum. The posessive determiner (e.g., "her", "his", "their"), the posessive pronoun (e.g., "hers", "his", "theirs"), and reflexive pronoun (e.g., "herself", "himself", "themselves") are optional. These components must be provided in the order listed above if they are included.
+A pronoun set must include a subject (e.g., "she", "he", "they") and an object (e.g., "her", "him", "them") pronoun at minimum. The posessive determiner (e.g., "her", "his", "their"), the posessive pronoun (e.g., "hers", "his", "theirs"), and reflexive pronoun (e.g., "herself", "himself", "themself") are optional. These components must be provided in the order listed above if they are included.
 
 Some examples of valid and invalid records:
 
@@ -54,7 +54,7 @@ Some examples of valid and invalid records:
 
 + she/her
 + he/him/his/his/himself;preferred
-+ they/them/their/theirs/themselves
++ they/them/their/theirs/themself
 + *
 + !
 + ze/zir/zir/zirself
@@ -69,7 +69,7 @@ Some examples of valid and invalid records:
 
 - she/her/
 - she
-- they/them/their/theirs/themselves/extra
+- they/them/their/theirs/themself/extra
 - she/her;unknown-tag
 ```
 

@@ -6,7 +6,7 @@ This document proposes a standard format for specifying personal pronouns using 
 
 - `domain`: A domain name associated with a person, typically used for personal websites or email addresses.
 - `pronouns`: A set of personal pronouns that a user uses to refer to themself
-- `record`: A DNS TXT record that contains information about the pronouns.
+- `record`: A DNS TXT record that contains a single pronoun declaration (pronoun set, wildcard, or none).
 - `pronoun set`: A set of associated pronouns, such as "she/her", "he/him", "they/them", etc.
 - `user`: The person whose pronouns are being specified.
 - `implementation`: A software or service that retrieves and interprets pronoun records from DNS.

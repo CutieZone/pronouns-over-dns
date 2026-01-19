@@ -43,7 +43,7 @@ none = "!";
 
 The canonical representation of a record's values and tags contains only lowercase letters, with no whitespace. Parsers, however, should normalise input to be lowercase, and should ignore leading or trailing whitespace. The canonical representation of the tags component should contain no duplicate or empty tags, but again parsers should expect these and normalise input to remove duplicates and empty tags.
 
-A pronoun set must include a subject (e.g., "she", "he", "they") and an object (e.g., "her", "him", "them") pronoun at minimum. The posessive determiner (e.g., "her", "his", "their"), the posessive pronoun (e.g., "hers", "his", "theirs"), and reflexive pronoun (e.g., "herself", "himself", "themself") are optional. These components must be provided in the order listed above if they are included.
+A pronoun set must include a subject (e.g., "she", "he", "they") and an object (e.g., "her", "him", "them") pronoun at minimum. The possessive determiner (e.g., "her", "his", "their"), the possessive pronoun (e.g., "hers", "his", "theirs"), and reflexive pronoun (e.g., "herself", "himself", "themself") are optional. These components must be provided in the order listed above if they are included.
 
 Some examples of valid and invalid records:
 
@@ -72,7 +72,7 @@ Some examples of valid and invalid records:
 - she/her;unknown-tag
 ```
 
-Note that each example here is an isolated example provided grouped for brevity. In practice, a `!` recoird may not be provided with other records and must be the sole record if present, per [None Records](#none).
+Note that each example here is an isolated example provided grouped for brevity. In practice, a `!` record may not be provided with other records and must be the sole record if present, per [None Records](#none).
 
 ## Tags
 
@@ -92,7 +92,7 @@ Indicates that this pronoun set uses a plural verb agreement (e.g., "are", "were
 
 A wildcard record (`*`) indicates that the user is open to being referred to using any pronoun set. This is a standalone record, and must not be combined with any other values or tags. Comments are still allowed.
 
-When a wildcard is the only record present, the neutral pronoun set (they/them) is assumed to be the defacto preference.
+When a wildcard is the only record present, the neutral pronoun set (they/them) is assumed to be the de facto preference.
 
 Other records may be provided alongside a wildcard record to indicate preference. In the case that a wildcard is not the only record:
 

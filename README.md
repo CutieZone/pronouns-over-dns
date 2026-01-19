@@ -33,7 +33,7 @@ tags =
     | ";", [ tag ]
     | tags, tag;
 
-tag = "preferred";
+tag = "preferred" | "plural";
 
 value = [a-z]+;
 
@@ -80,6 +80,10 @@ The following tags are defined:
 ### `preferred`
 
 Indicates that this pronoun set is the user's preferred pronoun set. If multiple pronoun sets are tagged with `preferred`, a record is picked in accordance with the [selection process](#selection-process) defined below.
+
+### `plural`
+
+Indicates that this pronoun set is plural in nature. For example, "they/them" would be tagged with `plural`, while "she/her" and "he/him" would not. For simplicity for users, parsers are expected to recognise that "they/them" is plural even if the tag is not present, but the tag may be used to indicate that other pronoun sets are plural.
 
 ## Wildcard and None Records
 

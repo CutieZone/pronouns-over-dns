@@ -28,3 +28,7 @@ Example on how to add yourself:
 ## JavaScript/TypeScript
 
 - [podns](https://npmjs.com/package/podns)
+
+## Nix
+
+- [pronouns.nix](https://gist.github.com/itsfolf/ad1624951bf4f79b5c342b2e44b74f82)

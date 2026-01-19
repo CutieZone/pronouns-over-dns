@@ -13,6 +13,10 @@ Example on how to add yourself:
 
 -->
 
+## Bash
+
+- [pronouns.sh](https://gist.github.com/itsfolf/2c9267fd75edfc192932516a453fe552)
+
 ## Go
 
 - [podgo](https://github.com/vcokltfre/podgo)

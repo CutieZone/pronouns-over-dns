@@ -37,7 +37,7 @@ tag = "preferred" | "plural";
 
 value = [a-z]+;
 
-comment = "#", { any-character };
+comment = "#", { any-non-newline-character };
 
 wildcard = "*";
 none = "!";
@@ -72,6 +72,8 @@ Some examples of valid and invalid records:
 - they/them/their/theirs/themselves/extra
 - she/her;unknown-tag
 ```
+
+Note that each example here is an isolated example provided grouped for brevity. In practice, a `!` recoird may not be provided with other records and must be the sole record if present, per [None Records](#none).
 
 ## Tags
 
@@ -116,7 +118,7 @@ A none record (`!`) indicates that the user does not wish to be referred to usin
 
 ## Selection Process
 
-When multiple pronoun sets are available, and no more specific means of determining priority is available, record preference is left as intenttionally undefined behaviour and is left to the implementation to decide. Possible strategies include:
+When multiple pronoun sets are available, and no more specific means of determining priority is available, record preference is left as intentionally undefined behaviour and is left to the implementation to decide. Possible strategies include:
 
 - Selecting the first record returned by the DNS resolver.
 - Randomly selecting one of the available records.

@@ -17,6 +17,10 @@ Example on how to add yourself:
 
 - [pronouns.sh](https://gist.github.com/itsfolf/2c9267fd75edfc192932516a453fe552)
 
+## C# 
+
+- [PoDNS.NET](https://github.com/GeoffreyWesthoff/PoDNS.NET)
+
 ## Go
 
 - [podgo](https://github.com/vcokltfre/podgo)

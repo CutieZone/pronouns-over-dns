@@ -1,19 +1,19 @@
 # Pronouns over DNS
 
-This document proposes a standard format to specify personal pronouns using DNS TXT records, primarily for person domains.
+This document proposes a standard format to specify personal pronouns using DNS TXT records, primarily for personal domains.
 
 ## Terminology
 
 - `domain`: A domain name associated with a person, typically used for personal websites or email addresses.
-- `pronouns`: A set of personal pronouns that an user uses to refer to themselves
-- `record`: A DNS TXT record that contains the pronouns information.
+- `pronouns`: A set of personal pronouns that a user uses to refer to themselves
+- `record`: A DNS TXT record that contains information about the pronouns.
 - `pronoun set`: A set of associated pronouns, such as "she/her", "he/him", "they/them", etc.
 - `user`: The person whose pronouns are being specified.
 - `implementation`: A software or service that retrieves and interprets pronoun records from DNS.
 
 ## Record Names
 
-The TXT record for pronouns should be placed in a TXT record at `pronouns.<domain>`. For example, for the domain `example.com`, the record would be located at `pronouns.example.com`. Multiple records may be present to indicate multiple available pronoun sets, their precedence by default follows the [selection process](#selection-process) defined below, but [tags](#tags) may be used to indicate preference.
+The record must be a TXT record at `pronouns.<domain>`. For example, for the domain `example.com`, the record would be located at `pronouns.example.com`. Multiple records may be present to indicate multiple available pronoun sets, their precedence by default follows the [selection process](#selection-process) defined below, but [tags](#tags) may be used to indicate preference.
 
 ## Format
 
@@ -43,7 +43,7 @@ wildcard = "*";
 none = "!";
 ```
 
-The canonical representation of a record's values and tags contains only lowercase letters, with no spaces. Parsers, however, should normalise input to be lowercase, and should ignore whitespace. The canonical representation of the tags component should contain no duplicate or empty tags, but again parsers should expect these and normalise input to remove duplicates and empty tags.
+The canonical representation of a record's values and tags contains only lowercase letters, with no spaces. Parsers, however, should normalise input to be lowercase, and should ignore leading or trailing whitespace. The canonical representation of the tags component should contain no duplicate or empty tags, but again parsers should expect these and normalise input to remove duplicates and empty tags.
 
 A pronoun set must include a subject (e.g., "she", "he", "they") and an object (e.g., "her", "him", "them") pronoun at minimum. The posessive determiner (e.g., "her", "his", "their"), the posessive pronoun (e.g., "hers", "his", "theirs"), and reflexive pronoun (e.g., "herself", "himself", "themselves") are optional. These components must be provided in the order listed above if they are included.
 

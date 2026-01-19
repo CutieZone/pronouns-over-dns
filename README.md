@@ -83,7 +83,7 @@ Indicates that this pronoun set is the user's preferred pronoun set. If multiple
 
 ### `plural`
 
-Indicates that this pronoun set is plural in nature. For example, "they/them" would be tagged with `plural`, while "she/her" and "he/him" would not. For simplicity for users, parsers are expected to recognise that "they/them" is plural even if the tag is not present, but the tag may be used to indicate that other pronoun sets are plural.
+Indicates that this pronoun set uses a plural verb agreement (e.g., "are", "were" rather than "is", "was", as used in "they are", "they were"). For simplicity for users, parsers are expected to recognise that "they/them" has a plural verb agreement even if the tag is not present, but the tag may be used to indicate that other pronoun sets are plural in nature.
 
 ## Wildcard and None Records
 

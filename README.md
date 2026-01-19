@@ -29,7 +29,7 @@ base_record =
 
 pronoun_set = value, "/", value, [ "/", value ], [ "/", value ], [ "/", value ];
 
-tags = ";", tag, { ",", tag }
+tags = ";", tag, { ";", tag }
 
 tag = "preferred" | "plural";
 
@@ -53,6 +53,7 @@ Some examples of valid and invalid records:
 + she/her
 + he/him/his/his/himself;preferred
 + they/them/their/theirs/themself
++ they/them;preferred;plural
 + *
 + !
 + ze/zir/zir/zirself

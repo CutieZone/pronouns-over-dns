@@ -20,3 +20,7 @@ Example on how to add yourself:
 ## Java
 
 - [PoDNS4J](https://github.com/itsfolf/PoDNS4J)
+
+## JavaScript/TypeScript
+
+- [podns](https://npmjs.com/package/podns)

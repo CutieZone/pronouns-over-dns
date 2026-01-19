@@ -124,6 +124,14 @@ When multiple pronoun sets are available, and no more specific means of determin
 - Randomly selecting one of the available records.
 - Returning a pseudo-random but consistent selection based on a hash of the domain name.
 
+## Parser Conversions
+
+Implementations should, in the case of certain common pronoun sets defined below, translate the given input into a more correct form. This is to account for common uses of pronoun sets which do not strictly conform to the format defined above, but are widely used.
+
+| Input  | Converted To         |
+| ------ | -------------------- |
+| it/its | it/it/its/its/itself |
+
 ## Extra
 
 This originated, as far as I can tell, from [this blog post by fasterthanlime](https://fasterthanli.me/articles/state-of-the-fasterthanlime-2024#all-the-personal-news). If someone can find an earlier source, I'd be happy to amend it, but this is an attempt at formalizing the format.

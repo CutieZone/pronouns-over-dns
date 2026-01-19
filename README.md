@@ -42,7 +42,7 @@ wildcard = "*";
 none = "!";
 ```
 
-The canonical representation of a record's value contain only any character except for "!", "*", ";", "/", "#" and with only lowercase letters. Parsers, however, should normalise input to be lowercase, and should ignore leading or trailing whitespace. Values may have internal whitespace which should not be modified by the parser. 
+The canonical representation of a record's value may contain any character except for "!", "*", ";", "/", "#", and with only lowercase letters. Parsers, however, should normalise input to be lowercase, and should ignore leading or trailing whitespace. Values may have internal whitespace which should not be modified by the parser. 
 
 The canonical representation of the tags component should contain no duplicate or empty tags, but again parsers should expect these and normalise input to remove duplicates and empty tags.
 

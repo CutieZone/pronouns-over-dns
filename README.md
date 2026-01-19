@@ -29,9 +29,7 @@ base_record =
 
 pronoun_set = value, "/", value, [ "/", value ], [ "/", value ], [ "/", value ];
 
-tags =
-    | ";", [ tag ]
-    | tags, tag;
+tags = ";", tag, [ ",", tag ]
 
 tag = "preferred" | "plural";
 

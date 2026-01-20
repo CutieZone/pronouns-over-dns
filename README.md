@@ -44,7 +44,7 @@ none = "!";
 
 The canonical representation of a record's value may contain any character except for "!", "*", ";", "/", "#", and with only lowercase letters. Parsers, however, should normalise input to be lowercase, and should ignore leading or trailing whitespace. Values may have internal whitespace which should not be modified by the parser. 
 
-The canonical representation of the tags component should contain no duplicate or empty tags, but again parsers should expect these and normalise input to remove duplicates and empty tags.
+The canonical representation of the tags component should contain no duplicate or empty tags, but again parsers should expect these and normalise input to remove duplicates and empty tags. See [deduplication handling](#deduplication-handling) for full information on how to handle duplicates, subsets, etc.
 
 A pronoun set must include a subject (e.g., "she", "he", "they") and an object (e.g., "her", "him", "them") pronoun at minimum. The possessive determiner (e.g., "her", "his", "their"), the possessive pronoun (e.g., "hers", "his", "theirs"), and reflexive pronoun (e.g., "herself", "himself", "themself") are optional. These components must be provided in the order listed above if they are included.
 
@@ -135,3 +135,21 @@ Implementations should, in the case of certain common pronoun sets defined below
 | Input  | Converted To         |
 | ------ | -------------------- |
 | it/its | it/it/its/its/itself |
+
+## Deduplication Handing
+
+- Parsers should deduplicate records, that is to say that if two records are found of `she/her` and a secondary of also `she/her`, parsers should only return one `she/her`.
+- Parsers should remove strict subsets, i.e. `she/her` and `she/her/hers` should result in only `she/her/hers`.
+- Parsers should apply tags found in strict subsets to their supersets, i.e. `she/her;preferred` and `she/her/hers` should become `she/her/hers;preferred`.
+- Parsers should merge tags found in duplicate records, i.e. `she/her;preferred` and `she/her;plural` become `she/her;preferred;plural`.
+
+For example:
+
+| Record(s) Present                                         | Resulting Pronoun Set                                      |
+| --------------------------------------------------------- | ---------------------------------------------------------- |
+| `she/her`, `she/her`                                      | `she/her`                                                  |
+| `she/her`, `she/her/hers`                                 | `she/her/hers`                                             |
+| `she/her;preferred`, `she/her/hers`                       | `she/her/hers;preferred`                                   |
+| `she/her;preferred`, `she/her;plural`                     | `she/her;preferred;plural`                                 |
+| `she/her`, `she/her/hers;preferred`                       | `she/her/hers;preferred`                                   |
+

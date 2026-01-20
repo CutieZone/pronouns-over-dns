@@ -42,11 +42,11 @@ wildcard = "*";
 none = "!";
 ```
 
-The canonical representation of a record's value may contain any character except for "!", "*", ";", "/", "#", and with only lowercase letters. Parsers, however, should normalise input to be lowercase, and should ignore leading or trailing whitespace. Values may have internal whitespace which should not be modified by the parser. 
+The canonical representation of a record's value may contain any character except for "!", "*", ";", "/", "#", and with only lowercase letters. Implementations, however, should normalise input to be lowercase, and should ignore leading or trailing whitespace. Values may have internal whitespace which should not be modified by the implementation.
 
-The canonical representation of the tags component should contain no duplicate or empty tags, but again parsers should expect these and normalise input to remove duplicates and empty tags.
+The canonical representation of the tags component should contain no duplicate or empty tags, but again implementations should expect these and normalise input to remove duplicates and empty tags.
 
-A pronoun set must include a subject (e.g., "she", "he", "they") and an object (e.g., "her", "him", "them") pronoun at minimum. The possessive determiner (e.g., "her", "his", "their"), the possessive pronoun (e.g., "hers", "his", "theirs"), and reflexive pronoun (e.g., "herself", "himself", "themself") are optional. These components must be provided in the order listed above if they are included. Parsers should deduplicate pronoun sets following the [deduplication process](#deduplication-process) process.
+A pronoun set must include a subject (e.g., "she", "he", "they") and an object (e.g., "her", "him", "them") pronoun at minimum. The possessive determiner (e.g., "her", "his", "their"), the possessive pronoun (e.g., "hers", "his", "theirs"), and reflexive pronoun (e.g., "herself", "himself", "themself") are optional. These components must be provided in the order listed above if they are included. Implementations should deduplicate pronoun sets following the [deduplication process](#deduplication-process) process.
 
 Some examples of valid and invalid records:
 
@@ -89,7 +89,7 @@ Indicates that this pronoun set is the user's preferred pronoun set. If multiple
 
 ### `plural`
 
-Indicates that this pronoun set uses a plural verb agreement (e.g., "are", "were" rather than "is", "was", as used in "they are", "they were"). For simplicity for users, parsers are expected to recognise that "they/them" has a plural verb agreement even if the tag is not present, but the tag may be used to indicate that other pronoun sets are plural in nature.
+Indicates that this pronoun set uses a plural verb agreement (e.g., "are", "were" rather than "is", "was", as used in "they are", "they were"). For simplicity for users, implementations are expected to recognise that "they/them" has a plural verb agreement even if the tag is not present, but the tag may be used to indicate that other pronoun sets are plural in nature.
 
 ## Wildcard and None Records
 
@@ -120,6 +120,14 @@ For example:
 
 A none record (`!`) indicates that the user does not wish to be referred to using any pronouns, but would prefer to explicitly be referred to by their name. This is also a standalone record, and must not be combined with any other values or tags. Comments are still allowed.
 
+## Conversions
+
+Implementations should, in the case of certain common pronoun sets defined below, convert the given input into a more correct form. This is to account for common uses of pronoun sets which do not strictly conform to the format defined above, but are widely used.
+
+| Input  | Converted To         |
+| ------ | -------------------- |
+| it/its | it/it/its/its/itself |
+
 ## Selection Process
 
 When multiple pronoun sets are available, and no more specific means of determining priority is available, record preference is left as intentionally undefined behaviour and is left to the implementation to decide. Possible strategies include:
@@ -128,20 +136,14 @@ When multiple pronoun sets are available, and no more specific means of determin
 - Randomly selecting one of the available records.
 - Returning a pseudo-random but consistent selection based on a hash of the domain name.
 
-## Parser Conversions
-
-Implementations should, in the case of certain common pronoun sets defined below, translate the given input into a more correct form. This is to account for common uses of pronoun sets which do not strictly conform to the format defined above, but are widely used.
-
-| Input  | Converted To         |
-| ------ | -------------------- |
-| it/its | it/it/its/its/itself |
-
 ## Deduplication Process
 
-- Parsers should deduplicate any number of identical records into one.
-- Parsers should remove strict subsets.
-- Parsers should apply tags found in strict subsets to their supersets.
-- Parsers should merge tags found in duplicate records.
+Implementations should:
+
+- Deduplicate any number of identical records into one.
+- Remove strict subsets.
+- Apply tags found in strict subsets to their supersets.
+- Merge tags found in duplicate records.
 
 For example:
 
@@ -152,4 +154,3 @@ For example:
 | `she/her;preferred`, `she/her/hers`                       | `she/her/hers;preferred`                                   |
 | `she/her;preferred`, `she/her;plural`                     | `she/her;preferred;plural`                                 |
 | `she/her`, `she/her/hers;preferred`                       | `she/her/hers;preferred`                                   |
-

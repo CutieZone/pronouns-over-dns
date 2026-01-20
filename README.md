@@ -138,10 +138,10 @@ Implementations should, in the case of certain common pronoun sets defined below
 
 ## Deduplication Process
 
-- Parsers should deduplicate records, that is to say that if two records are found of `she/her` and a secondary of also `she/her`, parsers should only return one `she/her`.
-- Parsers should remove strict subsets, i.e. `she/her` and `she/her/hers` should result in only `she/her/hers`.
-- Parsers should apply tags found in strict subsets to their supersets, i.e. `she/her;preferred` and `she/her/hers` should become `she/her/hers;preferred`.
-- Parsers should merge tags found in duplicate records, i.e. `she/her;preferred` and `she/her;plural` become `she/her;preferred;plural`.
+- Parsers should deduplicate any number of identical records into one.
+- Parsers should remove strict subsets.
+- Parsers should apply tags found in strict subsets to their supersets.
+- Parsers should merge tags found in duplicate records.
 
 For example:
 

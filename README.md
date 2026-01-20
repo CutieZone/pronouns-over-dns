@@ -44,9 +44,9 @@ none = "!";
 
 The canonical representation of a record's value may contain any character except for "!", "*", ";", "/", "#", and with only lowercase letters. Parsers, however, should normalise input to be lowercase, and should ignore leading or trailing whitespace. Values may have internal whitespace which should not be modified by the parser. 
 
-The canonical representation of the tags component should contain no duplicate or empty tags, but again parsers should expect these and normalise input to remove duplicates and empty tags. See [deduplication handling](#deduplication-handling) for full information on how to handle duplicates, subsets, etc.
+The canonical representation of the tags component should contain no duplicate or empty tags, but again parsers should expect these and normalise input to remove duplicates and empty tags.
 
-A pronoun set must include a subject (e.g., "she", "he", "they") and an object (e.g., "her", "him", "them") pronoun at minimum. The possessive determiner (e.g., "her", "his", "their"), the possessive pronoun (e.g., "hers", "his", "theirs"), and reflexive pronoun (e.g., "herself", "himself", "themself") are optional. These components must be provided in the order listed above if they are included.
+A pronoun set must include a subject (e.g., "she", "he", "they") and an object (e.g., "her", "him", "them") pronoun at minimum. The possessive determiner (e.g., "her", "his", "their"), the possessive pronoun (e.g., "hers", "his", "theirs"), and reflexive pronoun (e.g., "herself", "himself", "themself") are optional. These components must be provided in the order listed above if they are included. Parsers should deduplicate pronoun sets following the [deduplication process](#deduplication-process) process.
 
 Some examples of valid and invalid records:
 
@@ -136,7 +136,7 @@ Implementations should, in the case of certain common pronoun sets defined below
 | ------ | -------------------- |
 | it/its | it/it/its/its/itself |
 
-## Deduplication Handing
+## Deduplication Process
 
 - Parsers should deduplicate records, that is to say that if two records are found of `she/her` and a secondary of also `she/her`, parsers should only return one `she/her`.
 - Parsers should remove strict subsets, i.e. `she/her` and `she/her/hers` should result in only `she/her/hers`.

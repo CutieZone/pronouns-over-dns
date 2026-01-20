@@ -46,7 +46,7 @@ The canonical representation of a record's value may contain any character excep
 
 The canonical representation of the tags component should contain no duplicate or empty tags, but again implementations should expect these and normalise input to remove duplicates and empty tags.
 
-A pronoun set must include a subject (e.g., "she", "he", "they") and an object (e.g., "her", "him", "them") pronoun at minimum. The possessive determiner (e.g., "her", "his", "their"), the possessive pronoun (e.g., "hers", "his", "theirs"), and reflexive pronoun (e.g., "herself", "himself", "themself") are optional. These components must be provided in the order listed above if they are included. Implementation should deduplicate pronoun sets following the [deduplication process](#deduplication-process) process.
+A pronoun set must include a subject (e.g., "she", "he", "they") and an object (e.g., "her", "him", "them") pronoun at minimum. The possessive determiner (e.g., "her", "his", "their"), the possessive pronoun (e.g., "hers", "his", "theirs"), and reflexive pronoun (e.g., "herself", "himself", "themself") are optional. These components must be provided in the order listed above if they are included. Implementations should deduplicate pronoun sets following the [deduplication process](#deduplication-process) process.
 
 Some examples of valid and invalid records:
 

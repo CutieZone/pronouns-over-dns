@@ -46,7 +46,7 @@ The canonical representation of a record's value may contain any character excep
 
 The canonical representation of the tags component should contain no duplicate or empty tags, but again parsers should expect these and normalise input to remove duplicates and empty tags.
 
-A pronoun set must include a subject (e.g., "she", "he", "they") and an object (e.g., "her", "him", "them") pronoun at minimum. The possessive determiner (e.g., "her", "his", "their"), the possessive pronoun (e.g., "hers", "his", "theirs"), and reflexive pronoun (e.g., "herself", "himself", "themself") are optional. These components must be provided in the order listed above if they are included.
+A pronoun set must include a subject (e.g., "she", "he", "they") and an object (e.g., "her", "him", "them") pronoun at minimum. The possessive determiner (e.g., "her", "his", "their"), the possessive pronoun (e.g., "hers", "his", "theirs"), and reflexive pronoun (e.g., "herself", "himself", "themself") are optional. These components must be provided in the order listed above if they are included. Parsers should deduplicate pronoun sets following the [deduplication process](#deduplication-process) process.
 
 Some examples of valid and invalid records:
 
@@ -135,3 +135,21 @@ Implementations should, in the case of certain common pronoun sets defined below
 | Input  | Converted To         |
 | ------ | -------------------- |
 | it/its | it/it/its/its/itself |
+
+## Deduplication Process
+
+- Parsers should deduplicate any number of identical records into one.
+- Parsers should remove strict subsets.
+- Parsers should apply tags found in strict subsets to their supersets.
+- Parsers should merge tags found in duplicate records.
+
+For example:
+
+| Record(s) Present                                         | Resulting Pronoun Set                                      |
+| --------------------------------------------------------- | ---------------------------------------------------------- |
+| `she/her`, `she/her`                                      | `she/her`                                                  |
+| `she/her`, `she/her/hers`                                 | `she/her/hers`                                             |
+| `she/her;preferred`, `she/her/hers`                       | `she/her/hers;preferred`                                   |
+| `she/her;preferred`, `she/her;plural`                     | `she/her;preferred;plural`                                 |
+| `she/her`, `she/her/hers;preferred`                       | `she/her/hers;preferred`                                   |
+
